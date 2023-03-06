@@ -1,0 +1,129 @@
+h1{
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px 0;
+  }
+  h2{
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px 0;
+    
+  }
+  
+  ul {
+    padding: 0;
+  }
+  body {
+    margin: 0;
+  }
+  figure {
+    margin-top: 0;
+  }
+  ul,
+  li {
+    list-style-type: none;
+  }
+  address {
+    min-height: 40px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+  a {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #1976d2;
+  }
+  .btn-class {
+    background: #1976d2;
+    color: #fff;
+    padding: 7px;
+    width: 100%;
+    font-size: 13px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    border: 0;
+    max-width: 100px;
+    margin-bottom: 0;
+    border: 1px solid #1976d2;
+  }
+  .added {
+    color: #1976d2;
+    background-color: #fff;
+    max-width: 200px;
+    pointer-events: none;
+  }
+  .btn-remove {
+    pointer-events: initial;
+  }
+  .filter-wrap {
+    display: inline-flex;
+    justify-content: space-between;
+    margin: 20px 30px;
+  }
+  
+  .filters {
+    width: 220px;
+    padding: 40px 20px;
+    border-radius: 4px;
+    background: #98bbcc;
+  }
+  .filters li {
+    margin-bottom: 20px;
+  }
+  .filters span {
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    display: block;
+  }
+  
+  
+  .University-list {
+    width: 500px;
+    height: 500px;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 50px;
+    }
+   
+  select {
+    width: 100%;
+    height: 32px;
+    background: #fff;
+    text-transform: capitalize;
+    font-size: 13px;
+  }
+  fieldset {
+    padding: 0;
+    border: 0;
+  }
+  fieldset label {
+    margin-left: 10px;
+  }
+  button {
+    background: #1976d2;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    font-size: 15px;
+    border-radius: 4px;
+    font-weight: 700;
+    border: 0;
+  }
+  .search-wrap {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 50px;
+  }
+  .search-wrap button {
+    max-width: 100px;
+  }
+  .search-wrap input {
+    font-size: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-right: 21px;
+    width: 300px;
+  }
