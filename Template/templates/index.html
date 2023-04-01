@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Hunter</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <div class ="form-container">
+        <img src="/static/logo.png" alt="Logo" style="width: 100px; display: block; margin-bottom: 1rem;">
+        <h1>College Hunter</h1>
+        <form action="/search" method="POST" target="results-frame">
+            <label for="min_tuition">Min Tuition per Year ($):</label>
+            <input type="number" id="min_tuition" name="min_tuition" min="0" step="1" value="1">
+            <br>
+            <label for="max_tuition">Max Tuition per Year ($):</label>
+            <input type="number" id="max_tuition" name="max_tuition" min="0" step="1" value="50000">
+            <br>
+            <label for="min_admission_rate">Min Admission Rate (%):</label>
+            <input type="number" id="min_admission_rate" name="min_admission_rate" min="0" max="100" step="0.01" value="1">
+            <br>
+            <label for="max_admission_rate">Max Admission Rate (%):</label>
+            <input type="number" id="max_admission_rate" name="max_admission_rate" min="0" max="100" step="0.01" value="99">
+            <br>
+            <label for="min_college_size">Min College Size:</label>
+            <input type="number" id="min_college_size" name="min_college_size" min="0" step="1" value="1">
+            <br>
+            <label for="max_college_size">Max College Size:</label>
+            <input type="number" id="max_college_size" name="max_college_size" min="0" step="1" value="50000">
+            <br>
+            <label for="placeholder1">Average SAT:</label>
+            <input type="text" id="placeholder1" name="placeholder1">
+            <br>
+            <label for="placeholder2">Federal Loan Percent:</label>
+            <input type="text" id="placeholder2" name="placeholder2">
+            <br>
+            <label for="placeholder3">Placeholder 3:</label>
+            <input type="text" id="placeholder3" name="placeholder3">
+            <br>
+            <label for="placeholder4">Placeholder 4:</label>
+            <input type="text" id="placeholder4" name="placeholder4">
+            <br>
+            <input type="submit" value="Search">
+        </form>
+        </div>
+    </div>
+    <div class="iframe-container">
+        <iframe id="results-frame" name="results-frame" frameborder="0" style="width: 100%; height: 100%;"></iframe>
+    </div>
+</body>
+</html>
