@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 import requests
 import os
 
 app = Flask(__name__, template_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates'))
+# app.config['SECRET_KEY'] = ';lkjfdsa'
 
 API_KEY = "MHgWdG6I183QDehzQpEp1ZYFmSjJqOytO8ICj7Xl"
 API_URL = "https://api.data.gov/ed/collegescorecard/v1/schools"
@@ -10,8 +11,6 @@ API_URL = "https://api.data.gov/ed/collegescorecard/v1/schools"
 @app.route("/")
 def index():
     return render_template("index_Vlissara.html")
-    # return render_template("index.html")
-    # switch to above line for the starting template
 
 @app.route("/search", methods=["POST"])
 def search():
@@ -27,10 +26,10 @@ def search():
         "school.city",
         "school.state",
         "school.school_url"
-]),
-
+        ]),
     }
 
+    state = request.form.get("states")
     min_tuition = int(request.form.get("min_tuition")) if request.form.get("min_tuition") else None
     max_tuition = int(request.form.get("max_tuition")) if request.form.get("max_tuition") else None
     min_admission_rate = float(request.form.get("min_admission_rate")) if request.form.get("min_admission_rate") else None
@@ -38,6 +37,8 @@ def search():
     min_size = int(request.form.get("min_size")) if request.form.get("min_size") else None
     max_size = int(request.form.get("max_size")) if request.form.get("max_size") else None
 
+    if state:
+        params["school.state"] = state
     if min_tuition and max_tuition:
         params["latest.cost.tuition.in_state__range"] = f"{min_tuition}..{max_tuition}"
     if min_admission_rate and max_admission_rate:

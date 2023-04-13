@@ -10,16 +10,18 @@
     <h1>Search Results</h1>
     {% if colleges %}
         <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Tuition</th>
-                    <th>Admission Rate</th>
-                    <th>Size</th>
-                    <th>Location</th>
-                    <th>Website</th>
-                </tr>
-            </thead>
+            <!-- Add a new route "/sort" in the href attribute for each column -->
+<thead>
+    <tr>
+        <th><a href="/sort?sort_by=school.name">Name</a></th>
+        <th><a href="/sort?sort_by=latest.cost.tuition.in_state">Tuition</a></th>
+        <th><a href="/sort?sort_by=latest.admissions.admission_rate.overall">Admission Rate</a></th>
+        <th><a href="/sort?sort_by=latest.student.size">Size</a></th>
+        <th><a href="/sort?sort_by=location">Location</a></th>
+        <th><a href="/sort?sort_by=school.school_url">Website</a></th>
+    </tr>
+</thead>
+
             <tbody>
                 {% for college in colleges %}
                     <tr>
@@ -36,6 +38,8 @@
     {% else %}
         <p>No colleges found with the specified filters.</p>
     {% endif %}
-    <a href="/">Back to search</a>
+    <!-- <a href="/">Back to search</a> --> 
+    <!-- its not causing problems right now but this is called instead of
+    search_results_iframe which is not what I thought was going on -->
 </body>
 </html>
