@@ -10,26 +10,24 @@
     <h1>Search Results</h1>
     {% if colleges %}
         <table>
-            <!-- Add a new route "/sort" in the href attribute for each column -->
-<thead>
-    <tr>
-        <th><a href="/sort?sort_by=school.name">Name</a></th>
-        <th><a href="/sort?sort_by=latest.cost.tuition.in_state">Tuition</a></th>
-        <th><a href="/sort?sort_by=latest.admissions.admission_rate.overall">Admission Rate</a></th>
-        <th><a href="/sort?sort_by=latest.student.size">Size</a></th>
-        <th><a href="/sort?sort_by=location">Location</a></th>
-        <th><a href="/sort?sort_by=school.school_url">Website</a></th>
-    </tr>
-</thead>
-
+            <thead>
+                <tr>
+                    <th>Name <button onclick="sortTable('name', 'school.name')">Sort</button></th>
+                    <th>Tuition <button onclick="sortTable('tuition', 'latest.cost.tuition.in_state')">Sort</button></th>
+                    <th>Admission Rate <button onclick="sortTable('admissionRate', 'latest.admissions.admission_rate.overall')">Sort</button></th>
+                    <th>Size <button onclick="sortTable('size', 'latest.student.size')">Sort</button></th>
+                    <th>Location <button onclick="sortTable('city', 'school.city')">Sort</button></th>
+                    <th>Website</th>
+                </tr>
+            </thead>
             <tbody>
                 {% for college in colleges %}
-                    <tr>
-                        <td>{{ college['school.name'] if 'school.name' in college else 'N/A' }}</td>
-                        <td>{{ college['latest.cost.tuition.in_state'] if 'latest.cost.tuition.in_state' in college else 'N/A' }}</td>
-                        <td>{{ ((college['latest.admissions.admission_rate.overall'] * 100) | round) if 'latest.admissions.admission_rate.overall' in college else 'N/A'}}</td>
-                        <td>{{ college['latest.student.size'] if 'latest.student.size' in college else 'N/A' }}</td>
-                        <td>{{ college['school.city'] if 'school.city' in college else 'N/A' }}, {{ college['school.state'] if 'school.state' in college else 'N/A' }}</td>
+                    <tr data-index="{{loop.index0}}">
+                        <td data-key="school.name">{{ college['school.name'] if 'school.name' in college else 'N/A' }}</td>
+                        <td data-key="latest.cost.tuition.in_state">{{ college['latest.cost.tuition.in_state'] if 'latest.cost.tuition.in_state' in college else 'N/A' }}</td>
+                        <td data-key="latest.admissions.admission_rate.overall">{{ ((college['latest.admissions.admission_rate.overall'] * 100) | round) if 'latest.admissions.admission_rate.overall' in college else 'N/A'}}</td>
+                        <td data-key="latest.student.size">{{ college['latest.student.size'] if 'latest.student.size' in college else 'N/A' }}</td>
+                        <td data-key="school.city">{{ college['school.city'] if 'school.city' in college else 'N/A' }}, {{ college['school.state'] if 'school.state' in college else 'N/A' }}</td>
                         <td><a href="http://{{ college['school.school_url'] if 'school.school_url' in college else '#' }}" target="_blank">{{ college['school.school_url'] if 'school.school_url' in college else 'N/A' }}</a></td>
                     </tr>
                 {% endfor %}
@@ -41,5 +39,42 @@
     <!-- <a href="/">Back to search</a> --> 
     <!-- its not causing problems right now but this is called instead of
     search_results_iframe which is not what I thought was going on -->
+    <script>
+        let sortStates = {
+            name: 0,
+            tuition: 0,
+            admissionRate: 0,
+            size: 0,
+            city: 0,
+        };
+    
+        function sortTable(column, key) {
+    sortStates[column] = (sortStates[column] + 1) % 3;
+    const table = document.querySelector("tbody");
+    const rows = Array.from(table.querySelectorAll("tr"));
+
+    if (sortStates[column] === 1) {
+        rows.sort((a, b) => {
+            const aText = a.querySelector(`td[data-key="${key}"]`).textContent.split(',')[0].trim();
+            const bText = b.querySelector(`td[data-key="${key}"]`).textContent.split(',')[0].trim();
+            return aText.localeCompare(bText, undefined, { numeric: true });
+        });
+    } else if (sortStates[column] === 2) {
+        rows.sort((a, b) => {
+            const aText = a.querySelector(`td[data-key="${key}"]`).textContent.split(',')[0].trim();
+            const bText = b.querySelector(`td[data-key="${key}"]`).textContent.split(',')[0].trim();
+            return bText.localeCompare(aText, undefined, { numeric: true });
+        });
+    } else {
+        rows.sort((a, b) => {
+            const aIndex = parseInt(a.getAttribute("data-index"));
+            const bIndex = parseInt(b.getAttribute("data-index"));
+            return aIndex - bIndex;
+        });
+    }
+        rows.forEach(row => table.appendChild(row));
+    }
+
+    </script>    
 </body>
 </html>

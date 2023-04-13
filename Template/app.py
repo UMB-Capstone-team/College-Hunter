@@ -54,5 +54,9 @@ def search():
     print("API response data:", response.json())
     return render_template("search_results.html", colleges=colleges)
 
+@app.route("/api_credits")
+def api_credits():
+    return render_template("api_credits.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
