@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ college['school.name'] }} - College Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/styles_Vlissara.css">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+    <h1>{{ college['school.name'] if 'school.name' in college else 'N/A' }}</h1>
+    <p>Location: {{ college['school.city'] if 'school.city' in college else 'N/A' }}, {{ college['school.state'] if 'school.state' in college else 'N/A' }}</p>
+    <p>Website: <a href="http://{{ college['school.school_url'] if 'school.school_url' in college else '#' }}" target="_blank">{{ college['school.school_url'] if 'school.school_url' in college else 'N/A' }}</a></p>
+    <p>Tuition: {{ college['latest.cost.tuition.in_state'] if 'latest.cost.tuition.in_state' in college else 'N/A' }}</p>
+    <p>Admission Rate: {{ ((college['latest.admissions.admission_rate.overall'] * 100) | round) if 'latest.admissions.admission_rate.overall' in college else 'N/A' }}</p>
+    <p>Size: {{ college['latest.student.size'] if 'latest.student.size' in college else 'N/A' }}</p>
+
+    <a href="/">Back to search</a>
+</body>
+</html>

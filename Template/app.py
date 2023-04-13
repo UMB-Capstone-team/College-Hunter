@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, session, url_for
 import requests
 import os
 
@@ -25,7 +25,8 @@ def search():
         "latest.student.size",
         "school.city",
         "school.state",
-        "school.school_url"
+        "school.school_url",
+        "id"
         ]),
     }
 
@@ -57,6 +58,27 @@ def search():
 @app.route("/api_credits")
 def api_credits():
     return render_template("api_credits.html")
+
+@app.route("/college/<int:college_id>")
+def college_profile(college_id):
+    params = {
+        "api_key": API_KEY,
+        "id": college_id,
+        "_fields": ",".join([
+            "school.name",
+            "latest.cost.tuition.in_state",
+            "latest.admissions.admission_rate.overall",
+            "latest.student.size",
+            "school.city",
+            "school.state",
+            "school.school_url",
+            "id"
+        ]),
+    }
+    response = requests.get(API_URL, params=params)
+    college = response.json().get("results", [])[0]
+
+    return render_template("college_profile.html", college=college)
 
 if __name__ == "__main__":
     app.run(debug=True)
