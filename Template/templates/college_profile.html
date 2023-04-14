@@ -8,14 +8,30 @@
     <link rel="stylesheet" href="/static/styles_Vlissara.css">
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
 </head>
+<!--nav bar-->
+<div class="topnav">
+    <a href="index_vlissara.html">Home</a>
+    <a class="active"href="college_profile.html">Results</a>
+    <a href="api_credits.html">API</a>
+</div>
 <body>
-    <h1>{{ college['school.name'] if 'school.name' in college else 'N/A' }}</h1>
-    <p>Location: {{ college['school.city'] if 'school.city' in college else 'N/A' }}, {{ college['school.state'] if 'school.state' in college else 'N/A' }}</p>
-    <p>Website: <a href="http://{{ college['school.school_url'] if 'school.school_url' in college else '#' }}" target="_blank">{{ college['school.school_url'] if 'school.school_url' in college else 'N/A' }}</a></p>
-    <p>Tuition: {{ college['latest.cost.tuition.in_state'] if 'latest.cost.tuition.in_state' in college else 'N/A' }}</p>
-    <p>Admission Rate: {{ ((college['latest.admissions.admission_rate.overall'] * 100) | round) if 'latest.admissions.admission_rate.overall' in college else 'N/A' }}</p>
-    <p>Size: {{ college['latest.student.size'] if 'latest.student.size' in college else 'N/A' }}</p>
-
-    <a href="/">Back to search</a>
+   <div class="profile">
+    <h2>Name</h2>
+    <p>{{ college['school.name'] if 'school.name' in college else 'N/A' }}</p>
+    <h2>Tuition</h2>
+    <p>{{ college['latest.cost.tuition.in_state'] if 'latest.cost.tuition.in_state' in college else 'N/A' }}</p>
+    <h2>Admission Rate</h2>
+    <p>{{ ((college['latest.admissions.admission_rate.overall'] * 100) | round) if 'latest.admissions.admission_rate.overall' in college else 'N/A'}}</p>
+    <h2>Size</h2>
+    <p>{{ college['latest.student.size'] if 'latest.student.size' in college else 'N/A' }}</p>
+    <h2>Location</h2>
+    <p>{{ college['school.city'] if 'school.city' in college else 'N/A' }}, {{ college['school.state'] if 'school.state' in college else 'N/A' }}</p>
+    <h2>Website</h2>
+    <a href="http://{{ college['school.school_url'] if 'school.school_url' in college else '#' }}" target="_blank">{{ college['school.school_url'] if 'school.school_url' in college else 'N/A' }}</a>                  
+    {% endfor %}
+    {% else %}
+    <p>No colleges found with the specified filters.</p>
+    {% endif %} 
+    </div>
 </body>
 </html>
