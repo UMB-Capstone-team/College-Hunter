@@ -9,7 +9,7 @@ body {
     background-color: #bae6dc; 
 }
 .topnav {
-    background-color: #c4dceb; 
+    background-color: #c4ebdf; 
     overflow: hidden;
   } 
 .topnav a {
@@ -33,6 +33,11 @@ body {
 .container {
     display: grid;
     grid-template-columns: 1fr 3fr;
+    font-size: 13px;
+}
+.profile {
+    display: grid;
+    grid-template-columns: 1fr;
     font-size: 13px;
 }
 .center {
@@ -73,24 +78,6 @@ h1 {
     text-align: center;
     margin-bottom: 1.5rem;
 }
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1rem;
-}
-
-th,
-td {
-    padding: 0.5rem;
-    text-align: left;
-    border: 1px solid #ccc;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
@@ -105,8 +92,7 @@ tr:nth-child(even) {
     border-radius: 4px;
     background: #e6e47f;
     font-size: 15px;
-    font-weight: 700;
-    
+    font-weight: 700; 
  }
  
 .iframe-container {
