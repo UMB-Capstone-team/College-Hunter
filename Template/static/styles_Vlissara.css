@@ -9,7 +9,7 @@ body {
     background-color: #bae6dc; 
 }
 .topnav {
-    background-color: #e9d9eb; 
+    background-color: #c4dceb; 
     overflow: hidden;
   } 
 .topnav a {
@@ -40,9 +40,9 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 30%;
-    padding-top: 50px;
+    padding-top: 20px;
     padding-right: 30px;
-    padding-bottom: 50px;
+    padding-bottom: 10px;
     padding-left: 80px;
   }
 form {
@@ -99,11 +99,6 @@ tr:nth-child(even) {
     text-align: left;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    font-size: 13px;
-}
 .form-container {
     width: auto;
     padding: 40px 20px;
