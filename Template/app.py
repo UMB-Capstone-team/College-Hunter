@@ -10,7 +10,7 @@ API_URL = "https://api.data.gov/ed/collegescorecard/v1/schools"
 
 @app.route("/")
 def index():
-    return render_template("index_Vlissara.html")
+    return render_template("index.html")
 
 @app.route("/search", methods=["POST"])
 def search():

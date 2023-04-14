@@ -1,28 +1,60 @@
+header{
+    background-image: url("college.jpg");
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #bae6dc; 
 }
-
+.topnav {
+    background-color: #c4ebdf; 
+    overflow: hidden;
+  } 
+.topnav a {
+    float: left;
+    color: #080808;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+.topnav a:hover {
+    background-color: #c2bbf9;
+    color: black;
+  }
+  
+.topnav a.active {
+    background-color: #04AA6D;
+    color: rgb(0, 0, 0);
+  }
 .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    height: 100%;
-    padding: 1rem;
-    margin: 0 auto;
-    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    font-size: 13px;
 }
-
+.profile {
+    display: grid;
+    grid-template-columns: 1fr;
+    font-size: 13px;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-left: 80px;
+  }
 form {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
 }
-
 .input-pair {
     display: flex;
     justify-content: space-between;
@@ -36,37 +68,43 @@ form {
     width: 48%;
 }
 
-input {
-    width: 100%;
-    padding: 6px 12px;
-    font-size: 12px; 
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+input, select{
+    width: 80%;
+}
+label {
+    font-size: 15px; 
+}
+h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.form-group {
+    text-align: left;
 }
 
 .form-container {
-    width: 40%;
-    background-color: #e9f0f7;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
+    width: auto;
+    padding: 40px 20px;
+    border-radius: 4px;
+    background: #e6e47f;
+    font-size: 15px;
+    font-weight: 700; 
+ }
+ 
 .iframe-container {
-    width: 50%;
-    height: 80%;
+
+    width: auto;
+    height: auto;
     border: 1px solid #ccc;
     overflow: auto;
     position: relative;
-    background-color: #e9f0f7;
-    border-radius: 10px;
+    background-color: #aadeed; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 input[type="submit"] {
     background-color: #3a66cf;
     color: #fff;
@@ -83,42 +121,41 @@ input[type="submit"]:hover {
 
 iframe {
     margin-top: 1rem;
-    /* border: 1px solid #cccccc; */
+    border: 1px solid #cccccc;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-        width: 100%;
-        height: 100%;
-        border: none;
-        min-height: 200px;
-    
 }
-
-table {
-    width: 100%;
-    border-collapse: collapse;
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    font-size: 1.0rem;
+    text-align: center;
+    width: 10px;
+    height: 10px;
+  }
+/* Facebook */
+#facebook-share{
+    right: 0px;
 }
-
-table th,
-table td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ccc;
+#twitter-share{
+    right: 50px;
 }
-
-table thead {
-    background-color: #f2f2f2;
-}
-
-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-table tbody tr:hover {
-    background-color: #e9f0f7;
-}
-
-label {
-    font-size: 12px; 
-}
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  /* Twitter */
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
