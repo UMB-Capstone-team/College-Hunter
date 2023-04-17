@@ -6,7 +6,6 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background-color: #bae6dc; 
     background-image: url("college.jpg")
 }
 .topnav {
@@ -88,7 +87,8 @@ tr:nth-child(even) {
 }
 
 .form-container {
-    width: auto;
+    width: 50%;
+    left: 30px;
     padding: 40px 20px;
     border-radius: 4px;
     background: #e6e47f;
