@@ -89,12 +89,15 @@ tr:nth-child(even) {
 .form-container {
     position: relative;
     width: 50%;
-    left: 30px;
-    padding: 40px 20px;
+    left: 50px;
     border-radius: 15px;
     background: #e6e47f;
     font-size: 15px;
     font-weight: 500; 
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
  }
  
 .iframe-container {
