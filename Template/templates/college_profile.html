@@ -11,11 +11,11 @@
 <body>
    <div class="profile">
     <h1>{{ college['school.name'] if 'school.name' in college else 'N/A' }}</h1>
-    <h2>Location: {{ college['school.city'] if 'school.city' in college else 'N/A' }}, {{ college['school.state'] if 'school.state' in college else 'N/A' }}</p>
-    <h2>Tuition: {{ college['latest.cost.tuition.in_state'] if 'latest.cost.tuition.in_state' in college else 'N/A' }}</p>
-    <h2>Admission Rate: {{ ((college['latest.admissions.admission_rate.overall'] * 100) | round) if 'latest.admissions.admission_rate.overall' in college else 'N/A' }}</p>
-    <h2>Size: {{ college['latest.student.size'] if 'latest.student.size' in college else 'N/A' }}</p>
-    <h2>Website: <a href="http://{{ college['school.school_url'] if 'school.school_url' in college else '#' }}" target="_blank">{{ college['school.school_url'] if 'school.school_url' in college else 'N/A' }}</a></p>
+    <p>Location: {{ college['school.city'] if 'school.city' in college else 'N/A' }}, {{ college['school.state'] if 'school.state' in college else 'N/A' }}</p>
+    <p>Tuition: {{ college['latest.cost.tuition.in_state'] if 'latest.cost.tuition.in_state' in college else 'N/A' }}</p>
+    <p>Admission Rate: {{ ((college['latest.admissions.admission_rate.overall'] * 100) | round) if 'latest.admissions.admission_rate.overall' in college else 'N/A' }}</p>
+    <p>Size: {{ college['latest.student.size'] if 'latest.student.size' in college else 'N/A' }}</p>
+    <p>Website: <a href="http://{{ college['school.school_url'] if 'school.school_url' in college else '#' }}" target="_blank">{{ college['school.school_url'] if 'school.school_url' in college else 'N/A' }}</a></p>
     </div>
 </body>
 </html>
