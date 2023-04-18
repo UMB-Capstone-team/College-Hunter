@@ -20,7 +20,7 @@ def search():
         "per_page": 100,
         "_fields": ",".join([
         "school.name",
-        "latest.cost.tuition.in_state",
+        "latest.cost.tuition.out_of_state",
         "latest.admissions.admission_rate.overall",
         "latest.student.size",
         "school.city",
@@ -67,6 +67,7 @@ def college_profile(college_id):
         "_fields": ",".join([
             "school.name",
             "latest.cost.tuition.in_state",
+            "latest.cost.tuition.out_of_state",
             "latest.admissions.admission_rate.overall",
             "latest.student.size",
             "school.city",

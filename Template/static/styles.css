@@ -32,13 +32,18 @@ body {
   }
 .container {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 6fr;
+    gap: 30px;
     font-size: 13px;
 }
 .profile {
     display: grid;
     grid-template-columns: 1fr;
     font-size: 13px;
+    text-align: center;
+}
+.content {
+    text-align: center;
 }
 .center {
     display: block;
@@ -86,25 +91,30 @@ tr:nth-child(even) {
     text-align: left;
 }
 
+table {
+    width: 100%;
+}
+
 .form-container {
-    width: 50%;
-    left: 30px;
+    width: 100%;
+    /* left: 30px; */
     padding: 40px 20px;
     border-radius: 15px;
     background: #e6e47f;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 500; 
  }
  
 .iframe-container {
-
     width: auto;
     height: auto;
     border: 1px solid #ccc;
-    overflow: auto;
+    /* overflow: auto; */
     position: relative;
     background-color: #aadeed; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* margin-left: -80px; */
+    /* margin-right: +50px; */
 }
 input[type="submit"] {
     background-color: #3a66cf;
@@ -127,6 +137,7 @@ iframe {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    /* background-image: url("college.jpg"); */
 }
 .fa {
     padding: 20px;

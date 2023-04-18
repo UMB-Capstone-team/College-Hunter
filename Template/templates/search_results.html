@@ -13,7 +13,7 @@
             <thead>
                 <tr>
                     <th>Name <button onclick="sortTable('name', 'school.name')">Sort</button></th>
-                    <th>Tuition <button onclick="sortTable('tuition', 'latest.cost.tuition.in_state')">Sort</button></th>
+                    <th>Tuition <button onclick="sortTable('tuition', 'latest.cost.tuition.out_of_state')">Sort</button></th>
                     <th>Admission Rate <button onclick="sortTable('admissionRate', 'latest.admissions.admission_rate.overall')">Sort</button></th>
                     <th>Size <button onclick="sortTable('size', 'latest.student.size')">Sort</button></th>
                     <th>Location <button onclick="sortTable('city', 'school.city')">Sort</button></th>
@@ -25,8 +25,8 @@
                 {% for college in colleges %}
                     <tr data-index="{{loop.index0}}">
                         <td data-key="school.name">{{ college['school.name'] if 'school.name' in college else 'N/A' }}</td>
-                        <td data-key="latest.cost.tuition.in_state">{{ college['latest.cost.tuition.in_state'] if 'latest.cost.tuition.in_state' in college else 'N/A' }}</td>
-                        <td data-key="latest.admissions.admission_rate.overall">{{ ((college['latest.admissions.admission_rate.overall'] * 100) | round) if 'latest.admissions.admission_rate.overall' in college else 'N/A'}}</td>
+                        <td data-key="latest.cost.tuition.out_of_state">{{ college['latest.cost.tuition.out_of_state'] if 'latest.cost.tuition.out_of_state' in college else 'N/A' }}</td>
+                        <td data-key="latest.admissions.admission_rate.overall">{{ ((college['latest.admissions.admission_rate.overall'] * 100) | int) if 'latest.admissions.admission_rate.overall' in college else 'N/A'}}</td>
                         <td data-key="latest.student.size">{{ college['latest.student.size'] if 'latest.student.size' in college else 'N/A' }}</td>
                         <td data-key="school.city">{{ college['school.city'] if 'school.city' in college else 'N/A' }}, {{ college['school.state'] if 'school.state' in college else 'N/A' }}</td>
                         <!-- <td><a href="http://{{ college['school.school_url'] if 'school.school_url' in college else '#' }}" target="_blank">{{ college['school.school_url'] if 'school.school_url' in college else 'N/A' }}</a></td> -->
