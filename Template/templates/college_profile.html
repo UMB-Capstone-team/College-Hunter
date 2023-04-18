@@ -23,8 +23,13 @@
     <p>Size: {{ college['latest.student.size'] if 'latest.student.size' in college else 'N/A' }}</p>
     <p>Website: <a href="http://{{ college['school.school_url'] if 'school.school_url' in college else '#' }}" target="_blank">{{ college['school.school_url'] if 'school.school_url' in college else 'N/A' }}</a></p>
 
-    <a href="/">Back to search</a>
+    <a href="#" onclick="goBack();">Back to search</a>
     </div>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </body>
 </html>
 
