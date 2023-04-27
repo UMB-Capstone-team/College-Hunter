@@ -104,6 +104,7 @@ tr:nth-child(even) {
 
     width: auto;
     height: auto;
+    right: 30px;
     border: 1px solid #ccc;
     overflow: auto;
     position: relative;
