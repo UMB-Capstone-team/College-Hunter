@@ -9,7 +9,7 @@ body {
     background-image: url("college.jpg")
 }
 .topnav {
-    background-color: #c4ebdf; 
+    background-color: transparent; 
     overflow: hidden;
   } 
 .topnav a {
