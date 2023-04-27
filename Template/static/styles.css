@@ -11,6 +11,7 @@ body {
 .topnav {
     background-color: transparent; 
     overflow: hidden;
+    left: 80px;
   } 
 .topnav a {
     float: left;
