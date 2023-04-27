@@ -77,30 +77,47 @@ def college_profile(college_id):
             "latest.cost.tuition.out_of_state",
             "latest.admissions.admission_rate.overall",
             "latest.student.size",
+            "latest.student.enrollment.all",
             "school.city",
             "school.state",
             "latest.admissions.sat_scores.average.overall",
             "latest.aid.federal_loan_rate",
             "latest.completion.completion_rate_4yr_150nt_pooled",
-            "latest.academics.program_percentage",
+            "latest.academics.program_percentage.agriculture",
+            "latest.academics.program_percentage.resources",
+            "latest.academics.program_percentage.architecture",
+            "latest.academics.program_percentage.ethnic_cultural_gender",
+            "latest.academics.program_percentage.communication",
+            "latest.academics.program_percentage.communications_technology",
+            "latest.academics.program_percentage.computer",
+            "latest.academics.program_percentage.personal_culinary",
+            "latest.academics.program_percentage.education",
+            "latest.academics.program_percentage.engineering",
+            "latest.academics.program_percentage.engineering_technology",
+            "latest.academics.program_percentage.language",
+            "latest.academics.program_percentage.family_consumer_science",
             "latest.school.school_url",
+            "school.men_only",
+            "school.women_only",
             "id"
         ]),
     }
     response = requests.get(API_URL, params=params)
     college = response.json().get("results", [])[0]
+    top_majors = format_significant_majors(college)[:5]
     print("API response status code:", response.status_code)
     print("API response data:", response.json())
     # return jsonify(college)
-    return render_template("college_profile.html", college=college)
+    return render_template("college_profile.html", college=college, top_majors=top_majors)
 
 def format_significant_majors(college):
     majors = []
     for key, value in college.items():
-        if key.startswith('latest.academics.program_percentage') and value >= 0.2:
+        if key.startswith('latest.academics.program_percentage'):
             formatted_key = key.replace('latest.academics.program_percentage.','').replace('_', ' ').title()
-            majors.append(formatted_key)
-    return ', '.join(majors)
+            majors.append((formatted_key, value))
+    majors.sort(key=lambda x: x[1], reverse=True)
+    return majors
 
 
 if __name__ == "__main__":

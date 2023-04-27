@@ -19,7 +19,18 @@
     <p>Size (Student Population): {{ college['latest.student.size'] if 'latest.student.size' in college else 'N/A' }}</p>
     <p>Average SAT Score: {{ college['latest.admissions.sat_scores.average.overall'] if 'latest.admissions.sat_scores.average.overall' in college else 'N/A' }}</p>
     <p>Federal Loan Rate (%): {{ ((college['latest.aid.federal_loan_rate'] * 100) | int) if 'latest.aid.federal_loan_rate' in college else 'N/A' }}</p> 
-    <p>Significant Majors: {{ significant_majors }}</p>
+    {% if college['school.men_only'] %}
+    <p>This college is male-only.</p>
+    {% elif college['school.women_only'] %}
+    <p>This college is female-only.</p>
+    {% else %}
+    <p>This college is coeducational.</p>
+    {% endif %}
+    <p>Significant Majors:</p>
+    {% for major, percentage in top_majors %}
+    <p>{{ major }}: {{ (percentage * 100) | round(2) }}%</p>
+    {% endfor %}
+
 
     <p>Website: <a href="http://{{ college['latest.school.school_url'] if 'latest.school.school_url' in college else '#' }}" target="_blank">{{ college['latest.school.school_url'] if 'latest.school.school_url' in college else 'N/A' }}</a></p>
 
