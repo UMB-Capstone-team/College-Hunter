@@ -45,6 +45,11 @@ body {
 .content {
     text-align: center;
 }
+.content p {
+    text-align: center;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 28px;
+}
 .center {
     display: block;
     margin-left: auto;
