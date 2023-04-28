@@ -82,7 +82,9 @@ h1,p {
 h2{
     text-align: center;
     padding: 40px 30px;
-    font-family:Geometric sans serif;
+    font-family:'Rubik Vinyl', cursive;
+    ;
+
 }
 tr:nth-child(even) {
     background-color: #f2f2f2;
