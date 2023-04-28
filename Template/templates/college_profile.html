@@ -13,15 +13,15 @@
 </head>
 <body>
    <div class="profile">
-    <h1>{{ college['school.name'] if 'school.name' in college else 'N/A' }} - College Profile</h1>
-    <p>Location: {{ college['school.city'] if 'school.city' in college else 'N/A' }}, {{ college['school.state'] if 'school.state' in college else 'N/A' }}</p>
-    <p>In-State Tuition ($Per Year): {{ college['latest.cost.tuition.in_state'] if 'latest.cost.tuition.in_state' in college else 'N/A' }}</p>
-    <p>Out-of-State Tuition ($Per Year): {{ college['latest.cost.tuition.out_of_state'] if 'latest.cost.tuition.out_of_state' in college else 'N/A' }}</p>
-    <p>Admission Rate (%): {{ ((college['latest.admissions.admission_rate.overall'] * 100) | int) if 'latest.admissions.admission_rate.overall' in college else 'N/A' }}</p>
-    <p>Graduation Rate (%): {{ ((college['latest.completion.completion_rate_4yr_150nt_pooled'] * 100) | int) if 'latest.completion.completion_rate_4yr_150nt_pooled' in college else 'N/A' }}</p>
-    <p>Size (Student Population): {{ college['latest.student.size'] if 'latest.student.size' in college else 'N/A' }}</p>
-    <p>Average SAT Score: {{ college['latest.admissions.sat_scores.average.overall'] if 'latest.admissions.sat_scores.average.overall' in college else 'N/A' }}</p>
-    <p>Federal Loan Rate (%): {{ ((college['latest.aid.federal_loan_rate'] * 100) | int) if 'latest.aid.federal_loan_rate' in college else 'N/A' }}</p> 
+    <h1 class="h1">{{ college['school.name'] if 'school.name' in college else 'N/A' }} - College Profile</h1>
+    <p class="newfont">Location: {{ college['school.city'] if 'school.city' in college else 'N/A' }}, {{ college['school.state'] if 'school.state' in college else 'N/A' }}</p>
+    <p class="newfont">In-State Tuition ($Per Year): {{ college['latest.cost.tuition.in_state'] if 'latest.cost.tuition.in_state' in college else 'N/A' }}</p>
+    <p class="newfont">Out-of-State Tuition ($Per Year): {{ college['latest.cost.tuition.out_of_state'] if 'latest.cost.tuition.out_of_state' in college else 'N/A' }}</p>
+    <p class="newfont">Admission Rate (%): {{ ((college['latest.admissions.admission_rate.overall'] * 100) | int) if 'latest.admissions.admission_rate.overall' in college else 'N/A' }}</p>
+    <p class="newfont">Graduation Rate (%): {{ ((college['latest.completion.completion_rate_4yr_150nt_pooled'] * 100) | int) if 'latest.completion.completion_rate_4yr_150nt_pooled' in college else 'N/A' }}</p>
+    <p class="newfont">Size (Student Population): {{ college['latest.student.size'] if 'latest.student.size' in college else 'N/A' }}</p>
+    <p class="newfont">Average SAT Score: {{ college['latest.admissions.sat_scores.average.overall'] if 'latest.admissions.sat_scores.average.overall' in college else 'N/A' }}</p>
+    <p class="newfont">Federal Loan Rate (%): {{ ((college['latest.aid.federal_loan_rate'] * 100) | int) if 'latest.aid.federal_loan_rate' in college else 'N/A' }}</p> 
     {% if college['school.men_only'] %}
     <p>This college is male-only.</p>
     {% elif college['school.women_only'] %}
