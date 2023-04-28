@@ -83,11 +83,7 @@ h2{
     text-align: center;
     padding: 40px 30px;
     font-family: 'Rubik Vinyl', cursive;
-    font-size: 40px;
-    padding-top: 20px;
-    padding-right: 30px;
-    padding-bottom: 30px;
-    padding-left: 80px;
+    font-size: 50px;
 }
 tr:nth-child(even) {
     background-color: #f2f2f2;
