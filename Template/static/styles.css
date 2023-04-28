@@ -2,14 +2,13 @@ header{
     background-image: url("college.jpg");
 }
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     height: 100vh;
     background-image: url("college.jpg");
 }
 .topnav {
-    background-color: #c4ebdf; 
+    background-color: transparent; 
     overflow: hidden;
   } 
 .topnav a {
@@ -82,6 +81,31 @@ label {
 h1 {
     text-align: center;
     margin-bottom: 1.5rem;
+    font-family: 'Gugi', cursive;
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 48px;
+}
+p {
+    text-align: center;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 28px;
+    background-color: #90f0cd;
+    height: 100px;
+    width: 200px;
+    left: 90px;
+    display: block;
+}
+h3{
+    text-align: center;
+    font-family: 'Gugi', cursive;
+    font-size: 36px;
+}
+h2{
+    text-align: center;
+    padding: 60px 30px;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 48px;
+    color: #3034ac;
 }
 tr:nth-child(even) {
     background-color: #f2f2f2;
