@@ -115,7 +115,7 @@ tr:nth-child(even) {
 .form-container {
     position: relative;
     width: 40%;
-    #left: 80px;
+    left: 80px;
     border-radius: 15px;
     background: #e6e47f;
     font-size: 15px;
@@ -130,7 +130,7 @@ tr:nth-child(even) {
 
     width: auto;
     height: auto;
-    #right: 60px;
+    right: 60px;
     border: 1px solid #ccc;
     overflow: auto;
     position: relative;
