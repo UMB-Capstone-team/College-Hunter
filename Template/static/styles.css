@@ -82,7 +82,7 @@ h1,p {
 h2{
     text-align: center;
     padding: 40px 30px;
-    font-family: url('https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap');
+    font-family: 'Rubik Vinyl', cursive;
 
 }
 tr:nth-child(even) {
