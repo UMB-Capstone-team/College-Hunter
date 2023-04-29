@@ -9,7 +9,7 @@ body {
     background-image: url("college.jpg");
 }
 .topnav {
-    background-color: #c4ebdf; 
+    background-color: transparent; 
     overflow: hidden;
   } 
 .topnav a {
@@ -37,11 +37,27 @@ body {
     font-size: 13px;
 }
 .profile {
-    display: grid;
-    grid-template-columns: 1fr;
     font-size: 13px;
     text-align: center;
-}
+  }
+  
+  .profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .profile-item {
+    background-color: rgb(130, 228, 204);
+    padding: 20px 30px;
+    border: 10px solid rgb(72, 193, 230);
+    font-family: 'Darumadrop One', cursive;
+    font-size: 30px;
+    text-align: center;
+  }
+
 .content {
     text-align: center;
 }
@@ -92,20 +108,6 @@ h1.h1{
     font-size: 58px;
     font-family: 'Darumadrop One', cursive;
 }
-p.newfont{
-    text-align: center;
-    background-color: rgb(130, 228, 204);
-    width: 300px;
-    border: 10px solid rgb(72, 193, 230);
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 20px;
-    padding-right: 30px;
-    padding-bottom: 30px;
-    padding-left: 30px;
-    font-family: 'Darumadrop One', cursive;
-    font-size: 36px;
-}
 p {
     text-align: center;
     font-family: 'Oxygen', sans-serif;
@@ -143,7 +145,7 @@ table {
     width: 100%;
     /* left: 30px; */
     padding: 40px 20px;
-    border-radius: 15px;
+    border-radius: 0;
     background: #e6e47f;
     font-size: 13px;
     font-weight: 500; 
@@ -175,7 +177,7 @@ input[type="submit"]:hover {
 }
 
 iframe {
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     border: 1px solid #cccccc;
     position: absolute;
     top: 50%;

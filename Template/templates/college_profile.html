@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ college['school.name'] }} - College Profile</title>
+    <!-- <title>{{ college['school.name'] }} - College Profile</title> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/static/styles.css">
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
@@ -13,31 +13,37 @@
 </head>
 <body>
    <div class="profile">
-    <h1 class="h1">{{ college['school.name'] if 'school.name' in college else 'N/A' }} - College Profile</h1>
-    <p class="newfont">Location: {{ college['school.city'] if 'school.city' in college else 'N/A' }}, {{ college['school.state'] if 'school.state' in college else 'N/A' }}</p>
-    <p class="newfont">In-State Tuition ($Per Year): {{ college['latest.cost.tuition.in_state'] if 'latest.cost.tuition.in_state' in college else 'N/A' }}</p>
-    <p class="newfont">Out-of-State Tuition ($Per Year): {{ college['latest.cost.tuition.out_of_state'] if 'latest.cost.tuition.out_of_state' in college else 'N/A' }}</p>
-    <p class="newfont">Admission Rate (%): {{ ((college['latest.admissions.admission_rate.overall'] * 100) | int) if 'latest.admissions.admission_rate.overall' in college else 'N/A' }}</p>
-    <p class="newfont">Graduation Rate (%): {{ ((college['latest.completion.completion_rate_4yr_150nt_pooled'] * 100) | int) if 'latest.completion.completion_rate_4yr_150nt_pooled' in college else 'N/A' }}</p>
-    <p class="newfont">Size (Student Population): {{ college['latest.student.size'] if 'latest.student.size' in college else 'N/A' }}</p>
-    <p class="newfont">Average SAT Score: {{ college['latest.admissions.sat_scores.average.overall'] if 'latest.admissions.sat_scores.average.overall' in college else 'N/A' }}</p>
-    <p class="newfont">Federal Loan Rate (%): {{ ((college['latest.aid.federal_loan_rate'] * 100) | int) if 'latest.aid.federal_loan_rate' in college else 'N/A' }}</p> 
+    <h1 class="h1">
+        <a href="http://{{ college['latest.school.school_url'] if 'latest.school.school_url' in college else '#' }}" target="_blank">
+        {{ college['school.name'] if 'school.name' in college else 'N/A' }} - College Profile
+        </a>
+    </h1>
+    <div class="profile-grid">
+        <div class="profile-item">Location: {{ college['school.city'] if 'school.city' in college else 'N/A' }}, {{ college['school.state'] if 'school.state' in college else 'N/A' }}</div>
+        <div class="profile-item">In-State Tuition ($Per Year): {{ college['latest.cost.tuition.in_state'] if 'latest.cost.tuition.in_state' in college else 'N/A' }}</div>
+        <div class="profile-item">Out-of-State Tuition ($Per Year): {{ college['latest.cost.tuition.out_of_state'] if 'latest.cost.tuition.out_of_state' in college else 'N/A' }}</div>
+        <div class="profile-item">Admission Rate (%): {{ ((college['latest.admissions.admission_rate.overall'] * 100) | int) if 'latest.admissions.admission_rate.overall' in college else 'N/A' }}</div>
+        <div class="profile-item">Graduation Rate (%): {{ ((college['latest.completion.completion_rate_4yr_150nt_pooled'] * 100) | int) if 'latest.completion.completion_rate_4yr_150nt_pooled' in college else 'N/A' }}</div>
+        <div class="profile-item">Size (Student Population): {{ college['latest.student.size'] if 'latest.student.size' in college else 'N/A' }}</div>
+        <div class="profile-item">Average SAT Score: {{ college['latest.admissions.sat_scores.average.overall'] if 'latest.admissions.sat_scores.average.overall' in college else 'N/A' }}</div>
+        <div class="profile-item">Federal Loan Rate (%): {{ ((college['latest.aid.federal_loan_rate'] * 100) | int) if 'latest.aid.federal_loan_rate' in college else 'N/A' }}</div>
     {% if college['school.men_only'] %}
-    <p>This college is male-only.</p>
+    <div class="profile-item">This college is male-only.</div>
     {% elif college['school.women_only'] %}
-    <p>This college is female-only.</p>
+    <div class="profile-item">This college is female-only.</div>
     {% else %}
-    <p>This college is coeducational.</p>
+    <div class="profile-item">This college is coeducational.</div>
     {% endif %}
-    <p>Significant Majors:</p>
+    <ul class="profile-item">Significant Majors
     {% for major, percentage in top_majors %}
-    <p>{{ major }}: {{ (percentage * 100) | round(2) }}%</p>
+        <li>{{ major }}: {{ (percentage * 100) | round(2) }}%</li>
     {% endfor %}
+    </ul>
 
-
-    <p>Website: <a href="http://{{ college['latest.school.school_url'] if 'latest.school.school_url' in college else '#' }}" target="_blank">{{ college['latest.school.school_url'] if 'latest.school.school_url' in college else 'N/A' }}</a></p>
+    <!-- <p>Website: <a href="http://{{ college['latest.school.school_url'] if 'latest.school.school_url' in college else '#' }}" target="_blank">{{ college['latest.school.school_url'] if 'latest.school.school_url' in college else 'N/A' }}</a></p> -->
 
     <a href="#" onclick="goBack();">Back to search</a>
+    </div>
     </div>
     <script>
         function goBack() {
