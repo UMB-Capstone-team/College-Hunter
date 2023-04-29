@@ -8,16 +8,16 @@
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Darumadrop+One&family=Gugi&display=swap" rel="stylesheet">
 </head>
 <body>
    <div class="profile">
-    <h1>{{ college['school.name'] if 'school.name' in college else 'N/A' }}</h1>
-    <p>Location: {{ college['school.city'] if 'school.city' in college else 'N/A' }}, {{ college['school.state'] if 'school.state' in college else 'N/A' }}</p>
-    <p>Tuition: {{ college['latest.cost.tuition.in_state'] if 'latest.cost.tuition.in_state' in college else 'N/A' }}</p>
-    <p>Admission Rate: {{ ((college['latest.admissions.admission_rate.overall'] * 100) | round) if 'latest.admissions.admission_rate.overall' in college else 'N/A' }}</p>
-    <p>Size: {{ college['latest.student.size'] if 'latest.student.size' in college else 'N/A' }}</p>
-    <p>Website: <a href="http://{{ college['school.school_url'] if 'school.school_url' in college else '#' }}" target="_blank">{{ college['school.school_url'] if 'school.school_url' in college else 'N/A' }}</a></p>
+    <h1 class="h1">{{ college['school.name'] if 'school.name' in college else 'N/A' }}</h1>
+    <p class="newfont">Location: {{ college['school.city'] if 'school.city' in college else 'N/A' }}, {{ college['school.state'] if 'school.state' in college else 'N/A' }}</p>
+    <p class="newfont">Tuition: {{ college['latest.cost.tuition.in_state'] if 'latest.cost.tuition.in_state' in college else 'N/A' }}</p>
+    <p class="newfont">Admission Rate: {{ ((college['latest.admissions.admission_rate.overall'] * 100) | round) if 'latest.admissions.admission_rate.overall' in college else 'N/A' }}</p>
+    <p class="newfont">Size: {{ college['latest.student.size'] if 'latest.student.size' in college else 'N/A' }}</p>
+    <p class="newfont">Website: <a href="http://{{ college['school.school_url'] if 'school.school_url' in college else '#' }}" target="_blank">{{ college['school.school_url'] if 'school.school_url' in college else 'N/A' }}</a></p>
     </div>
 </body>
 </html>
