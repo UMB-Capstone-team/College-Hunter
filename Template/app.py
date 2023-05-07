@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, jsonify, url_for
+from flask import Flask, render_template, request
 from jinja2 import Template
 import requests
 import os

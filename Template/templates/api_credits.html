@@ -13,7 +13,7 @@
 </head>
 <!--nav bar-->
 <div class="topnav">
-    <a href="/">Home</a>
+    <a href="#" onclick="goBack();">Home</a>
     <!-- <a href="/college/<int:college_id>">Results</a> -->
     <a class="active"href="/api_credits">API</a>
 </div>
@@ -31,5 +31,12 @@
             For more information about the College Scorecard, please visit their <a href="https://collegescorecard.ed.gov/" target="_blank">official website</a>. To learn more about the API and its usage, please visit the <a href="https://collegescorecard.ed.gov/data/" target="_blank">data documentation page</a>.
         </p>
     </div>
+    </div>
+    </div>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </body>
 </html>

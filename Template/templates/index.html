@@ -13,21 +13,25 @@
 </head>
 <body>
 <!--page header-->
+<!--nav bar-->
+<div class="topnav">
+    <a class="active" href="/">Home</a>
+    <a href="/api_credits">API</a> 
     <img src="/static/college hunter.png" alt="College Hunter"class="center" >
+</div>
      <!--socialmedia icon-->
     <a href="#" class="fa fa-facebook" id="facebook-share"></a>
-    <a href="#" class="fa fa-twitter" id="twitter-share"></a><!--nav bar-->
-<!--nav bar-->
-    <div class="topnav">
-    <a class="active" href="/">Home</a>
-    <!-- <a href="#result">Results</a> -->
-    <a href="/api_credits">API</a>
-    </div>    
+    <a href="#" class="fa fa-twitter" id="twitter-share"></a>
 <!--filters-->
     <div class="container">
         <div class ="form-container">
             <form action="/search" method="POST" target="results-frame">
-            <label for="Select_state">Select a state:</label>
+            <label for="Select_state">Select a state:
+            <div class="tooltip">
+                <span class="info-icon">&#9432;</span>
+                <span class="tooltiptext">Choose the state in which you want to find colleges.</span>
+            </div>
+            </label>
             <select id="states" name="states" control-id="ControlID-4" data-gtm-form-interact-field-id="1">
                 <option value="" selected="">Select a state</option>
                 <option value="AL">Alabama</option>
@@ -82,21 +86,37 @@
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
             </select>
-            <label for="min_tuition">Min Tuition per Year ($):</label>
+            <label for="min_tuition">Tuition Range ($):
+            <div class="tooltip">
+                <span class="info-icon">&#9432;</span>
+                <span class="tooltiptext">Enter your minimum and maximum yearly out of state tuition range.</span>
+            </div>
+            </label>
             <input type="number" id="min_tuition" name="min_tuition" min="0" step="1" value="500">
-            <label for="max_tuition">Max Tuition per Year ($):</label>
             <input type="number" id="max_tuition" name="max_tuition" min="0" step="1" value="100000">
-            <label for="min_admission_rate">Min Admission Rate (%):</label>
+            <label for="min_admission_rate">Admission Range (%):
+            <div class="tooltip">
+                <span class="info-icon">&#9432;</span>
+                <span class="tooltiptext">Enter your minimum and maximum admission rate range.</span>
+            </div>
+            </label>
             <input type="number" id="min_admission_rate" name="min_admission_rate" min="0" max="100" step="1" value="1">
-            <label for="max_admission_rate">Max Admission Rate (%):</label>
             <input type="number" id="max_admission_rate" name="max_admission_rate" min="0" max="100" step="1" value="100">
-            <label for="min_college_size">Min College Size:</label>
+            <label for="min_college_size">Size Range:
+            <div class="tooltip">
+                <span class="info-icon">&#9432;</span>
+                <span class="tooltiptext">Enter your minimum and maximum undergraduate student body range.</span>
+            </div>
+            </label>
             <input type="number" id="min_college_size" name="min_college_size" min="0" step="1" value="100">  
-            <label for="max_college_size">Max College Size:</label>
             <input type="number" id="max_college_size" name="max_college_size" min="0" step="1" value="100000"> 
-            <label for="min_sat">Min SAT Average (%):</label>
+            <label for="min_sat">SAT Range (%):
+            <div class="tooltip">
+                <span class="info-icon">&#9432;</span>
+                <span class="tooltiptext">Enter your minimum and maximum SAT average for accepted students.</span>
+            </div>
+            </label>
             <input type="number" id="min_sat" name="min_sat" min="400" max="1600" step="1" value="400">
-            <label for="max_sat">Max SAT Average (%):</label>
             <input type="number" id="max_sat" name="max_sat" min="400" max="1600" step="1" value="1600">
             <input type="submit" value="Search">
         </div>
