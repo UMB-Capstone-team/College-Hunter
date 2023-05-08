@@ -52,14 +52,11 @@ def search():
     if min_sat and max_sat:
         params["latest.admissions.sat_scores.average.overall__range"] = f"{min_sat}..{max_sat}"
             
-    # params["_fields"] = ",".join(fields)
     response = requests.get(API_URL, params=params)
     response_data = response.json()
     colleges = response_data.get("results", [])
     print("API response status code:", response.status_code)
     print("API response data:", response.json())
-    # session['colleges'] = colleges
-    # return jsonify(colleges)
     return render_template("search_results.html", colleges=colleges)
 
 @app.route("/api_credits")
@@ -107,7 +104,6 @@ def college_profile(college_id):
     top_majors = format_significant_majors(college)[:5]
     print("API response status code:", response.status_code)
     print("API response data:", response.json())
-    # return jsonify(college)
     return render_template("college_profile.html", college=college, top_majors=top_majors)
 
 def format_significant_majors(college):

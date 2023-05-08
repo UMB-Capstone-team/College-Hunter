@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <title>{{ college['school.name'] }} - College Profile</title> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/static/styles.css">
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
@@ -39,9 +38,6 @@
         <li>{{ major }}: {{ (percentage * 100) | round(2) }}%</li>
     {% endfor %}
     </ul>
-
-    <!-- <p>Website: <a href="http://{{ college['latest.school.school_url'] if 'latest.school.school_url' in college else '#' }}" target="_blank">{{ college['latest.school.school_url'] if 'latest.school.school_url' in college else 'N/A' }}</a></p> -->
-
     <a href="#" onclick="goBack();">Back to search</a>
     </div>
     </div>
